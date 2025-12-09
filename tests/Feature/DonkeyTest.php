@@ -2,7 +2,8 @@
 
 namespace Avexsoft\Donkey\Tests\Feature;
 
-use Avexsoft\Donkey\Models\Donkey;
+// use Avexsoft\Donkey\Models\Donkey;
+use Avexsoft\Donkey\Facades\Donkey;
 use Avexsoft\Donkey\Tests\TestbenchTestCase;
 use Illuminate\Validation\ValidationException;
 

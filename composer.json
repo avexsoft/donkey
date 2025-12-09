@@ -54,10 +54,10 @@
         }
     },
     "minimum-stability": "dev",
-    "repositories": {
-        "MUST_ONLY_EXISTS_DURING_DEVELOPMENT": {
-            "type": "path",
-            "url": "~/code-server/projects/latest/avexcode.com/*/*"
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https:\/\/satis.avexcode.com"
         }
-    }
+    ]
 }
