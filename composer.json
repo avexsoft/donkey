@@ -1,0 +1,63 @@
+{
+    "name": "avexsoft/donkey",
+    "description": "The smart-ass Laravel package to manage `config()` in production",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "avexsoft"
+        }
+    ],
+    "homepage": "https://github.com/avexsoft/donkey",
+    "keywords": [
+        "Laravel",
+        "Donkey"
+    ],
+    "require": {
+        "composer/installers": "^2.3",
+        "doctrine/dbal": "^3.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~10.0",
+        "orchestra/testbench": "~8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Avexsoft\\Donkey\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Avexsoft\\Donkey\\Tests\\": "tests"
+        }
+    },
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Avexsoft\\Donkey\\DonkeyServiceProvider"
+            ],
+            "aliases": {
+                "Donkey": "Avexsoft\\Donkey\\Facades\\Donkey"
+            }
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "type": "laravel-library",
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "repositories": {
+        "MUST_ONLY_EXISTS_DURING_DEVELOPMENT": {
+            "type": "path",
+            "url": "~/code-server/projects/latest/avexcode.com/*/*"
+        }
+    }
+}
