@@ -29,9 +29,9 @@ Who will be editing it? Will they accidentally edit something else? And does tha
 ## How does it work?
 
 1. `Donkey::set('app.debug', true)` stores the key-value pair into the database
-2. The package then injects pairs from the database into the project automatically
-3. You can blacklist keys using regular expression, e.g. `app.*`, `database.*` etc
-4. Next, a whilelist will allow specific keys like `app.debug`, this way, you prevent really sensitive keys from being overwritten, e.g. `app.key`
+2. You can blacklist keys using regular expression, e.g. `app.*`, `database.*`
+3. Next, a whilelist will let through keys like `app.debug`, this way, you prevent really sensitive keys from being overwritten, e.g. `app.key`
+4. The package then inject these pairs from the database into the project after going through the black and whitelist
 5. This approach plays nicely with the Laravel `config:cache` and requires no changes in your project
 
 ## Installation
