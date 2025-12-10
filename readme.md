@@ -19,7 +19,8 @@ Who will be editing it? Will they accidentally edit something else? And does tha
 
 3. Perhaps our biggest pain point was coming up with the UI to expose configurable parts of our projects to the users, there just wasn't an elegant way to do it. Our companion Filament package lets you create a configuration page blazingly fast and in your own namespace
    ```PHP
-   Donkey::set('project.advanced_mode', true); // calling config('project.advanced_mode') anywhere will return true
+   Donkey::set('project.advanced_mode', true); // sets project.advanced_mode into the project
+   config('project.advanced_mode'); // returns true
 
    // You can even give users their own configuration space
    Donkey::set(auth()->user()->id.'-user.advanced_mode', true);
