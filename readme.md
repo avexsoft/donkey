@@ -17,7 +17,7 @@ Donkey::set('app.debug', true); // config('app.debug') will return true until ch
 2. If you had to enable Laravel's debug mode temporarily in production, how would you do it? Modify `.env`?
 Who will be editing it? Will they accidentally edit something else? And does that person have SSH access? Even if you trust them, do you really want the other API keys to show up on their screens?
 
-3. Perhaps our biggest pain point was coming up with the UI to expose configurable parts of ours projects to the users, there just wasn't an elegant way to do it. Our companion Filament package lets you create a configuration page blazingly fast and in your own namespace
+3. Perhaps our biggest pain point was coming up with the UI to expose configurable parts of our projects to the users, there just wasn't an elegant way to do it. Our companion Filament package lets you create a configuration page blazingly fast and in your own namespace
    ```PHP
    Donkey::set('project.advanced_mode', true); // calling config('project.advanced_mode') anywhere will return true
 
