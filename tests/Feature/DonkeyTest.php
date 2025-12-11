@@ -14,8 +14,8 @@ class DonkeyTest extends TestbenchTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        config(['donkey.blacklist' => ['app.*', 'database.*', 'donkey.*']]);
-        config(['donkey.whitelist' => ['app.name']]);
+        config(['overrides.blacklist' => ['app.*', 'database.*', 'overrides.*']]);
+        config(['overrides.whitelist' => ['app.name']]);
     }
 
     public function test_prevent_store_if_blacklist()

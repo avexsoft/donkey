@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donkeys', function (Blueprint $table) {
+        Schema::create('overrides', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique();
             $table->json('value');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donkeys');
+        Schema::dropIfExists('overrides');
     }
 };

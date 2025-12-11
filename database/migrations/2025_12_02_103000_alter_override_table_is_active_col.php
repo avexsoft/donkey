@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('donkeys', function (Blueprint $table) {
+        Schema::table('overrides', function (Blueprint $table) {
             $table->addColumn('boolean', 'is_active')->default(true);
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('donkeys', function (Blueprint $table) {
+        Schema::table('overrides', function (Blueprint $table) {
             //
             $table->dropColumn('is_active');
         });

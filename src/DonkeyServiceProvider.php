@@ -36,7 +36,7 @@ class DonkeyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/donkey.php', 'donkey');
+        $this->mergeConfigFrom(__DIR__.'/../config/override.php', 'override');
 
         // Register the service the package provides.
         $this->app->singleton('donkey', function ($app) {
@@ -85,8 +85,8 @@ class DonkeyServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/donkey.php' => config_path('donkey.php'),
-        ], 'donkey.config');
+            __DIR__.'/../config/override.php' => config_path('override.php'),
+        ], 'donkey.override');
 
         // Publishing the views.
         /*$this->publishes([

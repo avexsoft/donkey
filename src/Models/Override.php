@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
-class Donkey extends Model
+class Override extends Model
 {
     public $timestamps = false;
 
@@ -48,8 +48,8 @@ class Donkey extends Model
 
     public function validate()
     {
-        $blacklistConfigs = config('donkey.blacklist');
-        $whitelistConfigs = config('donkey.whitelist');
+        $blacklistConfigs = config('override.blacklist');
+        $whitelistConfigs = config('override.whitelist');
 
         $validForCreate = true;
         foreach ($blacklistConfigs as $blacklistConfig) {

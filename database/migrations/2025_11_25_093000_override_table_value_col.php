@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('donkeys', function (Blueprint $table) {
-            $table->addColumn('longText', 'remarks');
+        Schema::table('overrides', function (Blueprint $table) {
+            $table->longText('value')->nullable()->change();
         });
     }
 
@@ -25,9 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('donkeys', function (Blueprint $table) {
+        Schema::table('overrides', function (Blueprint $table) {
             //
-            $table->dropColumn('remarks');
         });
     }
 };
