@@ -40,7 +40,7 @@ class DonkeyServiceProvider extends ServiceProvider
 
         // Register the service the package provides.
         $this->app->singleton('donkey', function ($app) {
-            return new Donkey;
+            return new Donkey();
         });
 
         $this->app->booting(function () {
