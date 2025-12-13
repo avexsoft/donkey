@@ -2,5 +2,5 @@
 
 return [
     'blacklist' => ['app.*', 'database.*', 'donkey.*'],
-    'whitelist' => ['app.name'],
+    'whitelist' => ['app.name', 'app.debug'],
 ];
