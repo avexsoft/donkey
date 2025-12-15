@@ -6,10 +6,16 @@ use Avexsoft\Donkey\Models\Override;
 
 class Donkey
 {
-    public function set($key, $value)
+    public function set($key, $value, $remarks = null): static
     {
-        Override::create(['key' => $key, 'value' => $value, 'remarks' => '']);
-        // return ;
+        $data['value'] = $value;
+        if ($remarks) {
+            $data['remarks'] = $remarks;
+        }
+
+        Override::updateOrCreate(['key' => $key], $data);
+
+        return $this;
     }
 
     public function get($key)
