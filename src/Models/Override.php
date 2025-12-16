@@ -15,6 +15,8 @@ class Override extends Model
         'key',
         'value',
         'remarks',
+        'is_active',
+        'is_masked',
     ];
 
     protected static function boot()
