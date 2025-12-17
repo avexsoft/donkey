@@ -21,8 +21,8 @@ class OverrideTest extends TestbenchTestCase
     {
         $this->expectException(ValidationException::class);
         Override::create([
-            'key'     => 'app.debug',
-            'value'   => 'blah',
+            'key' => 'app.debug',
+            'value' => 'blah',
             'remarks' => '',
         ]);
     }
@@ -30,8 +30,8 @@ class OverrideTest extends TestbenchTestCase
     public function test_allow_store_if_whitelist()
     {
         Override::create([
-            'key'     => 'app.name',
-            'value'   => 'blah',
+            'key' => 'app.name',
+            'value' => 'blah',
             'remarks' => '',
         ]);
         $this->assertDatabaseHas(Override::class, [
@@ -42,8 +42,8 @@ class OverrideTest extends TestbenchTestCase
     public function test_allow_store_if_not_blacklist()
     {
         Override::create([
-            'key'     => 'asdfasdf',
-            'value'   => 'blah',
+            'key' => 'asdfasdf',
+            'value' => 'blah',
             'remarks' => '',
         ]);
         $this->assertDatabaseHas(Override::class, [
