@@ -14,21 +14,13 @@ class DonkeyServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'avexsoft');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'avexsoft');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-
-        $paths = [__DIR__.'/../database/migrations'];
-        $this->callAfterResolving('migrator', function ($migrator) use ($paths) {
-            foreach ((array) $paths as $path) {
-                $migrator->path($path);
-            }
-        });
-
     }
 
     /**
@@ -38,17 +30,13 @@ class DonkeyServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/override.php', 'override');
 
-        // Register the service the package provides.
         $this->app->singleton('donkey', function ($app) {
-            return new Donkey();
+            return new Donkey;
         });
 
         $this->app->booting(function () {
-            // this runs after the entire framework is booted
             $isCached = $this->app instanceof CachesConfiguration && $this->app->configurationIsCached();
             if (! $isCached) {
-                // find a way to play nicely with Laravel's cache (art optimize)
-                // so that below does not have to run on every request
                 $src = storage_path('config/values.json');
                 if (file_exists($src)) {
                     $config = json_decode(file_get_contents($src), true);
