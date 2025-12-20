@@ -31,7 +31,7 @@ class DonkeyServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/override.php', 'override');
 
         $this->app->singleton('donkey', function ($app) {
-            return new Donkey;
+            return new Donkey();
         });
 
         $this->app->booting(function () {
