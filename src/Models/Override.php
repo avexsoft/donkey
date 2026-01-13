@@ -46,6 +46,7 @@ class Override extends Model
         file_put_contents($path.'/values.json', json_encode($config, JSON_PRETTY_PRINT));
 
         Artisan::call('config:clear');
+        Artisan::call('queue:restart');
     }
 
     public function validate()
