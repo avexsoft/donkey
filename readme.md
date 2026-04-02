@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
+[![Build Status](https://travis-ci.com)](https://travis-ci.com).
 [![StyleCI][ico-styleci]][link-styleci]
 
 Donkey is a Laravel package to modify your Laravel `config()` in code/any environment without giving access to the `.env` file.
