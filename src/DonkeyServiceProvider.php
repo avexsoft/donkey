@@ -31,7 +31,7 @@ class DonkeyServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/override.php', 'override');
 
         $this->app->singleton('donkey', function ($app) {
-            return new Donkey();
+            return new Donkey;
         });
 
         $this->app->booting(function () {
@@ -39,7 +39,7 @@ class DonkeyServiceProvider extends ServiceProvider
             if (! $isCached) {
                 $src = storage_path('config/values.json');
                 if (file_exists($src)) {
-                    $config = json_decode(file_get_contents($src), true);
+                    $config = json_decode(file_get_contents($src), true) ?? [];
                     foreach ($config as $key => $value) {
                         $a = json_decode($value, true);
                         if (is_array($a)) {
