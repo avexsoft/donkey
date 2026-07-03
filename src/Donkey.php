@@ -8,10 +8,11 @@ class Donkey
 {
     /**
      * Let the packages specific the kind of keys they are expecting the user to configure
+     * Call this in the `boot()` of service providers
      *
-     * @param  string  $key  the key that is used/referenced in our code
-     * @param  string  $defaultValue  default value added
+     * @param  string  $key  Laravel config() key that is used/referenced in our code
      * @param  string  $remarks  give the user some idea what this is for
+     * @param  string  $defaultValue  default value added
      */
     public function expect($key, $remarks = null, $defaultValue = null): static
     {
