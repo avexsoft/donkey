@@ -14,6 +14,7 @@ class Override extends Model
     protected $fillable = [
         'key',
         'value',
+        'original_config_value',
         'remarks',
         'is_active',
         'is_masked',

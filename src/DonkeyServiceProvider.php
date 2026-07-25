@@ -3,10 +3,14 @@
 namespace Avexsoft\Donkey;
 
 use Illuminate\Contracts\Foundation\CachesConfiguration;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class DonkeyServiceProvider extends ServiceProvider
 {
+    protected array $originalConfigValues = [];
+
     /**
      * Perform post-registration booting of services.
      */
@@ -31,7 +35,7 @@ class DonkeyServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/override.php', 'override');
 
         $this->app->singleton('donkey', function ($app) {
-            return new Donkey();
+            return new Donkey;
         });
 
         $this->app->booting(function () {
@@ -41,12 +45,11 @@ class DonkeyServiceProvider extends ServiceProvider
                 if (file_exists($src)) {
                     $config = json_decode(file_get_contents($src), true) ?? [];
                     foreach ($config as $key => $value) {
+                        $this->originalConfigValues[$key] = config($key);
                         $a = json_decode($value, true);
                         if (is_array($a)) {
-                            // treat as JSON
                             config([$key => $a]);
                         } else {
-                            // treat as string
                             config([$key => $value]);
                         }
                     }
@@ -54,6 +57,15 @@ class DonkeyServiceProvider extends ServiceProvider
             }
         });
 
+        $this->app->booted(function () {
+            if ($this->originalConfigValues && Schema::hasColumn('overrides', 'original_config_value')) {
+                foreach ($this->originalConfigValues as $key => $originalValue) {
+                    DB::table('overrides')
+                        ->where('key', $key)
+                        ->update(['original_config_value' => $originalValue]);
+                }
+            }
+        });
     }
 
     /**
