@@ -23,7 +23,7 @@ class Donkey
                 $existing->update(['remarks' => $remarks]);
             }
         } else {
-            $data = ['key' => $key, 'value' => $defaultValue];
+            $data = ['key' => $key, 'value' => $defaultValue, 'is_active' => false];
             if ($remarks) {
                 $data['remarks'] = $remarks;
             }
