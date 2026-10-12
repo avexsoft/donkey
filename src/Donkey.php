@@ -8,7 +8,7 @@ class Donkey
 {
     /**
      * Let the packages specify the kind of keys they are expecting the user to configure
-     * Call this in the `boot()` of service providers
+     * Call this inside a `$this->afterMigrate(function() { ... })` in the `boot()` of service providers
      *
      * @param  string  $key  Laravel config() key that is used/referenced in our code
      * @param  string  $remarks  give the user some idea what this is for, always overwritten
